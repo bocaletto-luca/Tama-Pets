@@ -127,7 +127,7 @@ if (isset($_GET['action'])) {
       <div class="panel" id="statePanel">
         <h4 class="text-center">My Pet <i class="fas fa-paw"></i></h4>
         <div class="text-center mb-3">
-          <img id="petImage" src="img/pets.png" alt="Tamagotchi" class="img-fluid" style="max-width: 150px;">
+          <img id="petImage" src="img/pets.jpg" alt="Tamagotchi" class="img-fluid" style="max-width: 150px;">
           <!-- Campo per mostrare l'azione corrente -->
           <div id="actionMessage" class="mt-2 h5 text-primary"></div>
         </div>
