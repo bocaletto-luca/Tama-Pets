@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tama-Pets-JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS (CDN) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- FontAwesome Icons (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* CSS Personalizzato */
+    body {
+      background: #f8f9fa;
+      padding-bottom: 60px;
+    }
+    .app-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      padding: 15px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .progress {
+      height: 20px;
+    }
+    .progress-bar {
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    footer {
+      background: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Uniforma dimensione dei bottoni */
+    .btn {
+      min-width: 120px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar/Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#"><i class="fas fa-smile"></i>Tama-Pets</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item me-2">
+           <button id="newGameBtn" class="btn btn-light btn-sm">New Game</button>
+         </li>
+         <li class="nav-item me-2">
+           <button id="saveGameBtn" class="btn btn-light btn-sm">Save Game</button>
+         </li>
+         <li class="nav-item me-2">
+           <button id="loadGameBtn" class="btn btn-light btn-sm">Load Game</button>
+         </li>
+         <li class="nav-item">
+           <button id="recordBtn" class="btn btn-light btn-sm">Record</button>
+         </li>
+      </ul>
+      <span class="navbar-text">
+        <i class="fas fa-user"></i> Name: <span id="playerNameDisplay"></span> | Days Alive: <span id="daysAliveDisplay">0</span>
+      </span>
+    </div>
+  </nav>
+  
+  <!-- Main Dashboard -->
+  <div class="container-fluid mt-3">
+    <div class="app-container">
+      <!-- Panel 1: Stato del Pets -->
+      <div class="panel" id="statePanel">
+        <h4 class="text-center">My Pet <i class="fas fa-paw"></i></h4>
+        <div class="text-center mb-3">
+          <img id="petImage" src="img/pets.jpg" alt="Tamagotchi" class="img-fluid" style="max-width: 150px;">
+          <!-- Campo per mostrare l'azione corrente -->
+          <div id="actionMessage" class="mt-2 h5 text-primary"></div>
+        </div>
+        <div id="petStats">
+          <p id="statHunger">Hunger: 100.0 🍽</p>
+          <div class="progress mb-2">
+            <div id="barHunger" class="progress-bar bg-danger" role="progressbar" style="width: 100%;">100.0</div>
+          </div>
+          <p id="statHappiness">Happiness: 100.0 😊</p>
+          <div class="progress mb-2">
+            <div id="barHappiness" class="progress-bar bg-warning" role="progressbar" style="width: 100%;">100.0</div>
+          </div>
+          <p id="statEnergy">Energy: 100.0 ⚡</p>
+          <div class="progress mb-2">
+            <div id="barEnergy" class="progress-bar bg-info" role="progressbar" style="width: 100%;">100.0</div>
+          </div>
+          <p id="statCleanliness">Cleanliness: 100.0 🧼</p>
+          <div class="progress mb-2">
+            <div id="barCleanliness" class="progress-bar bg-success" role="progressbar" style="width: 100%;">100.0</div>
+          </div>
+          <p>Virtual Time: <span id="virtualTime">00:00</span> <span id="iconVirtualTime"></span></p>
+          <p>Days Alive: <span id="daysAlive">0</span></p>
+        </div>
+      </div>
+      
+      <!-- Panel 2: Azioni -->
+      <div class="panel" id="actionPanel">
+        <h4 class="text-center">Actions <i class="fas fa-hand-pointer"></i></h4>
+        <div class="d-flex flex-column align-items-center">
+          <button id="feedBtn" class="btn btn-primary mb-2 w-100">Feed 🍔</button>
+          <button id="playBtn" class="btn btn-secondary mb-2 w-100">Play 🎮</button>
+          <button id="sleepBtn" class="btn btn-info mb-2 w-100">Sleep 😴</button>
+          <button id="cleanBtn" class="btn btn-success mb-2 w-100">Clean 🧼</button>
+          <button id="parkBtn" class="btn btn-warning mb-2 w-100">Park 🚶</button>
+        </div>
+      </div>
+      
+      <!-- Panel 3: Game Log -->
+      <div class="panel" id="logPanel">
+        <h4 class="text-center">Game Log 📜</h4>
+        <div id="gameLog" style="height:300px; overflow-y:auto;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal: Inserisci Nome Giocatore -->
+  <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nameModalLabel">Enter Your Name</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="playerNameInput" class="form-control" placeholder="Your name" required>
+        </div>
+        <div class="modal-footer">
+          <button id="saveNameBtn" class="btn btn-primary">Save Name</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal: Record -->
+  <div class="modal fade" id="recordModal" tabindex="-1" role="dialog" aria-labelledby="recordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recordModalLabel">Records</h5>
+        </div>
+        <div class="modal-body" id="recordContent">
+          <!-- Classifica dei record verrà mostrata qui -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Input file nascosto per Load Game -->
+  <input type="file" id="loadFileInput" accept=".json" style="display:none">
+  
+  <!-- jQuery, Popper e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- Include main.js -->
+  <script src="main.js"></script>
+</body>
+</html>
