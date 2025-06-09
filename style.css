@@ -1,0 +1,37 @@
+ /* CSS Personalizzato */
+    body {
+      background: #f8f9fa;
+      padding-bottom: 60px;
+    }
+    .app-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      padding: 15px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .progress {
+      height: 20px;
+    }
+    .progress-bar {
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    footer {
+      background: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Uniforma dimensione dei bottoni */
+    .btn {
+      min-width: 120px;
+    }
