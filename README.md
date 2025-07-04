@@ -11,15 +11,16 @@ Tama-Pets-JS is a modern tamagotchi web app that lets you manage a virtual pet i
 
 <p>
   <a href="https://bocaletto-luca.github.io/Tama-Pets/index.html" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/Test%20Online-English-Click%20Here-brightgreen?style=for-the-badge"
-         alt="Test Online ENGLISH" />
+    <img
+      src="https://img.shields.io/badge/Test%20Online-English-Click%20Here-brightgreen?style=for-the-badge"
+      alt="Test Online ENGLISH" />
   </a>
   <a href="https://bocaletto-luca.github.io/Tama-Pets/index-ita.html" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/Test%20Online-Italian-Click%20Here-brightgreen?style=for-the-badge"
-         alt="Test Online ITALIAN" />
+    <img
+      src="https://img.shields.io/badge/Test%20Online-Italian-Click%20Here-brightgreen?style=for-the-badge"
+      alt="Test Online ITALIAN" />
   </a>
 </p>
-
 
 ##### This Demo is index.html no have save data, for enable save-data please download in you server index.php, GitHub not have module php. 
 
