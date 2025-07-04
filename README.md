@@ -9,9 +9,8 @@
 
 Tama-Pets-JS is a modern tamagotchi web app that lets you manage a virtual pet in real time! Enjoy interactive actions, a virtual clock, save/load features, and leaderboard record management—all built with HTML5, CSS3, JavaScript, and PHP.
 
-[![Test Online ENGLISH](https://img.shields.io/badge/Test%20Online-English-Click%20Here-brightgreen?style=for-the-badge)](https://bocaletto-luca.github.io/Tama-Pets/index.html)
-
-[![Test Online ITALIAN](https://img.shields.io/badge/Test%20Online-Italian-Click%20Here-brightgreen?style=for-the-badge)](https://bocaletto-luca.github.io/Tama-Pets/index-ita.html)
+[![Test Online ENGLISH](<https://img.shields.io/badge/Test%20Online-English-Click%20Here-brightgreen?style=for-the-badge>)](https://bocaletto-luca.github.io/Tama-Pets/index.html)
+[![Test Online ITALIAN](<https://img.shields.io/badge/Test%20Online-Italian-Click%20Here-brightgreen?style=for-the-badge>)](https://bocaletto-luca.github.io/Tama-Pets/index-ita.html)
 
 ##### This Demo is index.html no have save data, for enable save-data please download in you server index.php, GitHub not have module php. 
 
