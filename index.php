@@ -43,8 +43,11 @@ if (isset($_GET['action'])) {
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Tama-Pets-JS</title>
+<meta charset="UTF-8">
+<title>Tama-Pets – Gioco Tamagotchi Virtuale</title>
+  <meta name="keywords" content="Tama-Pets, Tamagotchi, gioco virtuale, pet virtuale, cura animale, divertimento, JS">
+  <meta name="author" content="Bocaletto Luca">
+  <meta name="description" content="Tama-Pets è un gioco digitale in JavaScript dove alimenti, fai giocare, fai dormire e pulisci il tuo animale virtuale per mantenerlo felice.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS (CDN) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
