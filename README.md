@@ -15,6 +15,9 @@ Tama-Pets-JS is a modern tamagotchi web app that lets you manage a virtual pet i
 
 ##### This Demo is index.html no have save data, for enable save-data please download in you server index.php, GitHub not have module php. 
 
+## Language
+English, Italian.
+
 ## Features
 
 - **Real-Time Pet Status:**  
