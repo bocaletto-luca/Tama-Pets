@@ -44,7 +44,7 @@ if (isset($_GET['action'])) {
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Tama-Pets – Gioco Tamagotchi Virtuale</title>
+<title>Tama-Pets – Gioco Tamagotchi Virtuale | Bocaletto Luca</title>
   <meta name="keywords" content="Tama-Pets, Tamagotchi, gioco virtuale, pet virtuale, cura animale, divertimento, JS">
   <meta name="author" content="Bocaletto Luca">
   <meta name="description" content="Tama-Pets è un gioco digitale in JavaScript dove alimenti, fai giocare, fai dormire e pulisci il tuo animale virtuale per mantenerlo felice.">
@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
 <body>
   <!-- Navbar/Header -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <a class="navbar-brand" href="#"><i class="fas fa-smile"></i>Tama-Pets</a>
+    <a class="navbar-brand" href="#"><i class="fas fa-smile"></i>Tama Pets | By Bocaletto Luca</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
             data-target="#navbarNav" aria-controls="navbarNav" 
             aria-expanded="false" aria-label="Toggle navigation">
